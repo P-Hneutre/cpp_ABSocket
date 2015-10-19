@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+    <head>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width" />
+        <title>UML</title>
+    </head>
+    <body>
+
+        <h1>Use Cases</h1>
+
+        <img src="doc-files/dia.svg" title='
+        @startuml doc-files/dia.svg
+
+        title Abstraction aux Sockets
+
+        interface ISocket {
+        	init() -> void
+        	connectToServer(host : String, port : bool) -> bool
+        	recv(buffer : String, size : int) -> int
+        	send(data : String) -> int
+        	end() -> void
+        }
+        interface ISocketServer {
+        	init(listenHost : String, listenPort : short) -> bool
+        	accept() -> ISocket*
+        }
+
+        class USocket {
+
+        }
+
+        class WSocket {
+
+        }
+
+        class USocketServer {
+
+        }
+
+        class WSocketServer {
+
+        }
+
+        ISocket <|-- USocket
+        ISocket <|-- WSocket
+
+        ISocketServer <|-- USocketServer
+        ISocketServer <|-- WSocketServer
+
+        @enduml
+        ' />
+
+    </body>
+</html>
