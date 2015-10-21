@@ -5,7 +5,9 @@
 class ISocket
 {
 	public:
-		virtual			~ISocket() = 0;
+		virtual			~ISocket() {};
+
+	public:
 		virtual void	init() = 0;
 		virtual bool	connectToServer(std::string const &host, short port) = 0;
 		virtual int		recv(std::string &buffer, int size) = 0;
