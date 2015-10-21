@@ -15,7 +15,11 @@
     </Filter>
   </ItemGroup>
   <ItemGroup>
+<<<<<<< HEAD
     <ClInclude Include="ISocketServer.hh">
+=======
+    <ClInclude Include="ISocket.hh">
+>>>>>>> 71cf4a19fcace97df2e5c941452f83911157a1b7
       <Filter>Fichiers d%27en-tête</Filter>
     </ClInclude>
     <ClInclude Include="USocket.hh">
@@ -24,7 +28,11 @@
     <ClInclude Include="WSocket.hh">
       <Filter>Fichiers d%27en-tête</Filter>
     </ClInclude>
+<<<<<<< HEAD
     <ClInclude Include="ISocket.hh">
+=======
+    <ClInclude Include="ISocketServer.hh">
+>>>>>>> 71cf4a19fcace97df2e5c941452f83911157a1b7
       <Filter>Fichiers d%27en-tête</Filter>
     </ClInclude>
   </ItemGroup>
