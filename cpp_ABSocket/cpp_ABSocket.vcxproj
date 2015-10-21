@@ -118,6 +118,14 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClInclude Include="ISocket.hh" />
+    <ClInclude Include="ISocketServer.hh" />
+    <ClInclude Include="USocket.hh" />
+    <ClInclude Include="WSocket.hh" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="USocket.cpp" />
+    <ClCompile Include="WSocket.cpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
