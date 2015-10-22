@@ -17,6 +17,7 @@
         interface ISocket {
         	init() -> void
         	connectToServer(host : String, port : bool) -> bool
+        	connectFromAcceptedFd(fd : int) -> bool
         	recv(buffer : String, size : int) -> int
         	send(data : String) -> int
         	end() -> void
