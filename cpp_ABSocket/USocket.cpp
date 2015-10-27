@@ -1,55 +1,82 @@
 #include "USocket.hh"
 
-
-
 USocket::USocket()
 {
-}
+	this->_fd = 0;
+	this->_sockAddr = NULL;
+	this->_sockAddrIn = NULL;
+	this->_sockIn = NULL;
+	this->_hostInfo = NULL;
 
+}
 
 USocket::~USocket()
 {
-}
-
-
-int	USocket::AbConnectToServer(std::string domain, short port, std::string protocol) {
 
 }
 
-int	USocket::AbSocket(int domain, int host, int protocol) {
-	return (socket(domain, host, protocol));
+void	USocket::setHostName(std::string host)
+{
+	this->_host = host;
 }
 
-int	USocket::AbBind(SOCKET socket, const struct sockaddr *addr, size_t addrlen) {
-	return (bind(socket, addr, addrlen));
+void	USocket::setPort(std::string port)
+{
+	this->_port = htons(port);
 }
 
-int	USocket::AbListen(SOCKET socket, int backlog) {
-	return (listen(socket, backlog));
+std::string	USocket::getHostName()
+{
+	return (this->_host);
 }
 
-int	USocket::AbConnect(SOCKET socket, const struct sockaddr *addr, size_t addrlen) {
-	return (connect(socket, addr, addrlen));
+short	USocket::getPort()
+{
+	return (this->_port);
 }
 
-int	USocket::AbAccept(SOCKET socket, struct sockaddr *addr, size_t *addrlen) {
-	return (accept(socket, addr, (socklen_t *)addrlen));
+bool	USocket::connectToServer(std::string host, std::string port)
+{
+	this->setHostName(host);
+	this->setPort(port); 
+	this->_fd = socket(AF_INET, SOCK_STREAM, 0);
+	if (this->_fd == INVALID_SOCKET)
+	{
+		perror("socket()");
+		exit(errno);
+	}
+
+
+	hostinfo = gethostbyname(hostname); /* on récupère les informations de l'hôte auquel on veut se connecter */
+	if (hostinfo == NULL) /* l'hôte n'existe pas */
+	{
+		fprintf(stderr, "Unknown host %s.\n", hostname);
+		exit(EXIT_FAILURE);
+	}
+
+	sin.sin_addr = *(IN_ADDR *)hostinfo->h_addr; /* l'adresse se trouve dans le champ h_addr de la structure hostinfo */
+	sin.sin_port = htons(PORT); /* on utilise htons pour le port */
+	sin.sin_family = AF_INET;
+
+	if (connect(sock, (SOCKADDR *)&sin, sizeof(SOCKADDR)) == SOCKET_ERROR)
+	{
+		perror("connect()");
+		exit(errno);
+	}
+
+
 }
 
-int	USocket::AbSend(SOCKET socket, const void *buffer, size_t size, int flags) {
-	return (send(socket, buffer, size, flags));
+bool	USocket::connectFromAcceptedFd(int fd)
+{
+
 }
 
-int	USocket::AbRecv(SOCKET socket, void *buffer, size_t size, int flags) {
-	return (recv(socket, buffer, size, flags));
+int		USocket::recv(std::string buffer, int size)
+{
+
 }
+int 	USocket::send(std::string  data)
+{
 
-int	USocket::AbSendTo(SOCKET socket, const void *buffer, size_t size, int flags, const struct sockaddr *sockaddr, size_t sockaddrlen) {
-	return (sendto(socket, buffer, size, flags, sockaddr, sockaddrlen));
-}
-
-
-
-int	USocket::AbRecvFrom(SOCKET socket, void *buffer, size_t size, int flags, struct sockaddr *sockaddr, size_t *sockaddrlen) {
-	return (recvfrom(socket, buffer, size, flags, sockaddr, (socklen_t *)sockaddrlen));
 }
