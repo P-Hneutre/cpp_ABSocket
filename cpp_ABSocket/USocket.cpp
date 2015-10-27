@@ -15,9 +15,9 @@ USocket::~USocket()
 
 }
 
-void	USocket::setHostName(std::string host)
+void	USocket::setHost(std::string host)
 {
-	this->_host = host;
+	this->_hostInfo = gethostbyname(host);
 }
 
 void	USocket::setPort(std::string port)
@@ -32,39 +32,35 @@ std::string	USocket::getHostName()
 
 short	USocket::getPort()
 {
-	return (this->_port);
+	return (this->_port);	
 }
 
 bool	USocket::connectToServer(std::string host, std::string port)
 {
 	this->setHostName(host);
-	this->setPort(port); 
+	this->setPort(port);
 	this->_fd = socket(AF_INET, SOCK_STREAM, 0);
 	if (this->_fd == INVALID_SOCKET)
 	{
-		perror("socket()");
-		exit(errno);
+		this->_error = INVALID_SOCKET;
+		return (false);
 	}
-
-
-	hostinfo = gethostbyname(hostname); 
-	if (hostinfo == NULL) 
+	
+	if (this->_hostInfo == NULL) 
 	{
-		fprintf(stderr, "Unknown host %s.\n", hostname);
-		exit(EXIT_FAILURE);
+		this->_error = UNKNOWN_HOST;
+		return (false);
 	}
 
-	sin.sin_addr = *(IN_ADDR *)hostinfo->h_addr; 
-	sin.sin_port = htons(PORT); 
-	sin.sin_family = AF_INET;
+	this->_sockAddrIn.sin_addr = *(IN_ADDR *)this->_hostInfo->h_addr;
+	this->_sockAddrIn.sin_port = this->_port; 
+	this->_sockAddrIn.sin_family = AF_INET;
 
-	if (connect(sock, (SOCKADDR *)&sin, sizeof(SOCKADDR)) == SOCKET_ERROR)
+	if (connect(this->_fd, (SOCKADDR *)&this->_sockAddr, sizeof(SOCKADDR)) == SOCKET_ERROR)
 	{
-		perror("connect()");
-		exit(errno);
+		this->_error = CONNECT_FAIL;
+		return (false);
 	}
-
-
 }
 
 bool	USocket::connectFromAcceptedFd(int fd)
@@ -72,11 +68,28 @@ bool	USocket::connectFromAcceptedFd(int fd)
 
 }
 
-int		USocket::recv(std::string buffer, int size)
+int		USocket::recvData(char	*buffer, int size)
 {
+	int n = 0;
+	if ((n = recv(this->_fd, buffer, size, 0)) < 0)
+		this->_error = ERR_RECV;
+	buffer[n] = 0;
+	return n;
+}
+
+int 	USocket::sendData(std::string buffer)
+{
+	if (send(this->_fd, buffer.c_str() , buffer.size(), 0) < 0)
+		this->_error = ERR_SEND;
 
 }
-int 	USocket::send(std::string  data)
-{
 
+int		USocket::getError()
+{
+	return (this->_error);
+}
+
+void	USocket::end()
+{
+	closesocket(this->_fd);
 }
