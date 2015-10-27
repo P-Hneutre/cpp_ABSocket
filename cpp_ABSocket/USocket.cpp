@@ -47,15 +47,15 @@ bool	USocket::connectToServer(std::string host, std::string port)
 	}
 
 
-	hostinfo = gethostbyname(hostname); /* on récupère les informations de l'hôte auquel on veut se connecter */
-	if (hostinfo == NULL) /* l'hôte n'existe pas */
+	hostinfo = gethostbyname(hostname); 
+	if (hostinfo == NULL) 
 	{
 		fprintf(stderr, "Unknown host %s.\n", hostname);
 		exit(EXIT_FAILURE);
 	}
 
-	sin.sin_addr = *(IN_ADDR *)hostinfo->h_addr; /* l'adresse se trouve dans le champ h_addr de la structure hostinfo */
-	sin.sin_port = htons(PORT); /* on utilise htons pour le port */
+	sin.sin_addr = *(IN_ADDR *)hostinfo->h_addr; 
+	sin.sin_port = htons(PORT); 
 	sin.sin_family = AF_INET;
 
 	if (connect(sock, (SOCKADDR *)&sin, sizeof(SOCKADDR)) == SOCKET_ERROR)
