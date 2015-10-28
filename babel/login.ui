@@ -23,17 +23,17 @@
     </rect>
    </property>
    <property name="styleSheet">
-    <string notr="true">QPushButton:default {
+    <string notr="true">QPushButton {
     border-style: outset;
     border-width: 2px;
 	border-radius:10px;
     border-color: black;
 }
-QPushButton:pressed {
-    background-color: rgb(255,255,255);
-    border-style: inset;
-}
-</string>
+
+    QPushButton:pressed {
+        border: 1px solid #333333;
+        background-color: #222222;
+    }</string>
    </property>
    <property name="text">
     <string>Login</string>

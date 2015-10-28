@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>790</width>
-    <height>537</height>
+    <width>572</width>
+    <height>461</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -18,9 +18,9 @@
     <property name="geometry">
      <rect>
       <x>-10</x>
-      <y>170</y>
+      <y>180</y>
       <width>291</width>
-      <height>351</height>
+      <height>261</height>
      </rect>
     </property>
     <property name="lineWidth">
@@ -157,13 +157,110 @@
      <string>Contact List</string>
     </property>
    </widget>
+   <widget class="QLabel" name="pseudo_2">
+    <property name="geometry">
+     <rect>
+      <x>300</x>
+      <y>50</y>
+      <width>141</width>
+      <height>20</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>Pseudo :</string>
+    </property>
+   </widget>
+   <widget class="QLabel" name="pseudo_3">
+    <property name="geometry">
+     <rect>
+      <x>300</x>
+      <y>140</y>
+      <width>141</width>
+      <height>20</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>Status :</string>
+    </property>
+   </widget>
+   <widget class="QLabel" name="pseudo_4">
+    <property name="geometry">
+     <rect>
+      <x>380</x>
+      <y>50</y>
+      <width>141</width>
+      <height>20</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>Baboulinet</string>
+    </property>
+   </widget>
+   <widget class="QLabel" name="status">
+    <property name="geometry">
+     <rect>
+      <x>380</x>
+      <y>140</y>
+      <width>141</width>
+      <height>20</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>Online</string>
+    </property>
+   </widget>
+   <widget class="QWidget" name="widget" native="true">
+    <property name="geometry">
+     <rect>
+      <x>490</x>
+      <y>120</y>
+      <width>51</width>
+      <height>51</height>
+     </rect>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="pushButton">
+    <property name="geometry">
+     <rect>
+      <x>350</x>
+      <y>330</y>
+      <width>111</width>
+      <height>31</height>
+     </rect>
+    </property>
+    <property name="font">
+     <font>
+      <weight>75</weight>
+      <bold>true</bold>
+     </font>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">QPushButton {
+        border: 1px solid #FFFFF;
+		font-color:rgb(255,255,255)f;
+        border-radius: 6px;
+    	background-color: #27ae60;
+    }
+    QPushButton:hover {
+        border: 1px solid #333333;
+        background-color: #3498db;
+    }
+    QPushButton:pressed {
+        border: 1px solid #333333;
+        background-color: #ffffff;
+    }</string>
+    </property>
+    <property name="text">
+     <string>Call</string>
+    </property>
+   </widget>
   </widget>
   <widget class="QMenuBar" name="menubar">
    <property name="geometry">
     <rect>
      <x>0</x>
      <y>0</y>
-     <width>790</width>
+     <width>572</width>
      <height>20</height>
     </rect>
    </property>
@@ -195,7 +292,7 @@
    </property>
    <property name="font">
     <font>
-     <pointsize>5</pointsize>
+     <pointsize>8</pointsize>
     </font>
    </property>
   </action>

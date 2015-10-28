@@ -31,8 +31,8 @@ quint16         TcpSocket::getPort()
 
 void            TcpSocket::setSocket(QAbstractSocket *tcpSocket)
 {
-    if (tcpSocket->socketType() == 0)
-        this->_tcpSocket =   qobject_cast<QTcpSocket *> tcpSocket;
+    //if (tcpSocket->socketType() == 0)
+        //this->_tcpSocket =   qobject_cast<QTcpSocket *> tcpSocket;
 }
 
 QAbstractSocket *    TcpSocket::getSocket()

@@ -16,7 +16,15 @@ MainView::MainView(QWidget *parent) :
     connect(this->ui->actionView_profile, SIGNAL(triggered()),this, SLOT(viewProfile()));
     connect(this->ui->actionDeconnection, SIGNAL(triggered()),this, SLOT(deconnect()));
     this->ui->contactList->setItemDelegate(new ListDelegate(this->ui->contactList));
-    this->createContact("taMère");
+    this->createContact("ilAPas");
+    this->createContact("ditBonjour");
+    this->createContact("duCoupIl");
+    this->createContact("c'estFait");
+    this->createContact("NiquerSaMère");
+    this->createContact("NiquerSaMère");
+    this->createContact("NiquerSaMère");
+    this->createContact("NiquerSaMère");
+
 
 
 
