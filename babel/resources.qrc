@@ -1,0 +1,10 @@
+<RCC>
+    <qresource prefix="/">
+        <file>img/babel.png</file>
+        <file>img/babelmini.png</file>
+        <file>img/babelicon.png</file>
+        <file>fonts/ArialRoundedMTBold.ttf</file>
+        <file>fonts/ArialRoundedMTRegular.ttf</file>
+		<file>stylesheets/QPushButton.qss</file>
+ </qresource>
+</RCC>
