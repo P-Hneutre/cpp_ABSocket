@@ -1,0 +1,25 @@
+#ifndef E_CMD
+#define E_CMD
+
+enum e_cmd{
+    CONTACT_LIST,
+    CONTACT,
+    ACCOUNT,
+    CREATE_ACCOUNT,
+    DELETE_ACCOUNT,
+    DISCONNECTION,
+    CALL,
+    SEARCH,
+    //INVITE,
+    ACCEPT_CONTACT,
+    REFUSE_CONTACT,
+    HANG_UP,
+    DELETE_CONTACT,
+    ACCEPT_CALL,
+    REFUSE_CALL,
+};
+
+
+
+#endif // E_CMD
+

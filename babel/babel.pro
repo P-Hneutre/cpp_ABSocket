@@ -14,29 +14,32 @@ TEMPLATE = app
 
 SOURCES += main.cpp\
     login.cpp \
-    register.cpp \
     about.cpp \
     listdelegate.cpp \
     mainview.cpp \
-    contactmanager.cpp \
     tcpsocket.cpp \
-    udpsocket.cpp
+    udpsocket.cpp \
+    contact.cpp \
+    contactmanager.cpp \
+    contactactions.cpp
 
 HEADERS  += \
     login.h \
-    register.h \
     about.h \
     listdelegate.h \
     mainview.h \
-    contactmanager.h \
     inetworkmanager.h \
     tcpsocket.h \
-    udpsocket.h
+    udpsocket.h \
+    contact.h \
+    contactmanager.h \
+    protocol.h \
+    contactactions.h
 
 FORMS    += \
     login.ui \
-    register.ui \
     mainview.ui \
-    about.ui
+    about.ui \
+    contactactions.ui
 
 RESOURCES     = resources.qrc

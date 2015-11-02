@@ -50,23 +50,24 @@ void ListDelegate::paint ( QPainter * painter, const QStyleOptionViewItem & opti
     }
 
     //Content
-    QIcon ic = QIcon(qvariant_cast<QPixmap>(index.data(Qt::DecorationRole)));
+    QIcon ic = QIcon(index.data(Qt::DecorationRole).toString());
     QString title = index.data(Qt::DisplayRole).toString();
     QString description = index.data(Qt::UserRole + 1).toString();
 
     int imageSpace = 10;
+
     if (!ic.isNull()) {
         //Icon
-        r = option.rect.adjusted(5, 10, -10, -10);
+        r = option.rect.adjusted(10, 0, 0, 0);
         ic.paint(painter, r, Qt::AlignVCenter|Qt::AlignLeft);
-        imageSpace = 55;
+        imageSpace = 5;
     }
     //Title
-    r = option.rect.adjusted(50, 0, 0, -20);
+    r = option.rect.adjusted(70, 0, 0, -20);
     painter->setFont( QFont( "Lucida Grande", 12, QFont::Normal ) );
     painter->drawText(r.left(), r.top(), r.width(), r.height(), Qt::AlignBottom|Qt::AlignLeft, title, &r);
     //Description
-    r = option.rect.adjusted(50, 29, 0, -10);
+    r = option.rect.adjusted(70, 29, 0, -10);
     painter->setFont( QFont( "Lucida Grande", 8, QFont::Normal ) );
     painter->drawText(r.left(), r.top(), r.width(), r.height(), Qt::AlignLeft, description, &r);
 }
