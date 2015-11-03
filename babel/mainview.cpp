@@ -174,7 +174,7 @@ void MainView::on_pushButton_2_clicked()
     {
         for (it = this->_contactList.begin(); it != this->_contactList.end(); it++)
         if (this->_currentItem->data(Qt::UserRole + 2) == (*it)->getContactId())
-            this->_contact->delContactInList((*it));
+           this->_contact->delContactInList((*it));
         this->_contactList = this->_contact->getContactList();
         this->fillContact();
         this->_currentItem = NULL;

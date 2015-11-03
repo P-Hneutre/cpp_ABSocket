@@ -6,7 +6,7 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>572</width>
+    <width>586</width>
     <height>462</height>
    </rect>
   </property>
@@ -575,13 +575,51 @@
      <string>Accept Contact</string>
     </property>
    </widget>
+   <widget class="QPushButton" name="addContact">
+    <property name="geometry">
+     <rect>
+      <x>360</x>
+      <y>60</y>
+      <width>161</width>
+      <height>31</height>
+     </rect>
+    </property>
+    <property name="font">
+     <font>
+      <weight>75</weight>
+      <bold>true</bold>
+     </font>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">QPushButton {
+        border: 1px solid;
+		border-color:rgb(0,0,0);
+		color:rgb(255,255,255);
+        border-radius: 6px;
+    	background-color: #2980b9;
+    }
+    QPushButton:hover {
+        border: 1px solid #333333;
+        background-color:#2c3e50;
+		color:rgb(255,255,255);
+    }
+    QPushButton:pressed {
+        border: 1px solid #333333;
+        background-color: #ffffff;
+		color:rgb(0,0,0)
+    }</string>
+    </property>
+    <property name="text">
+     <string>Add Contact</string>
+    </property>
+   </widget>
   </widget>
   <widget class="QMenuBar" name="menubar">
    <property name="geometry">
     <rect>
      <x>0</x>
      <y>0</y>
-     <width>572</width>
+     <width>586</width>
      <height>20</height>
     </rect>
    </property>
