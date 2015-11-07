@@ -3,8 +3,6 @@
 #include <string>
 #include <stdexcept>
 
-#define INVALID_SOCKET -1
-#define SOCKET_ERROR -1
 #define UNKNOWN_HOST 1
 #define CONNECT_FAIL 2
 #define ERR_RECV 3;

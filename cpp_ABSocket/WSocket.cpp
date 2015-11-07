@@ -1,15 +1,3 @@
-#include	<unistd.h>
-#include	<sys/types.h>
-#include	<sys/socket.h>
-#include	<sys/time.h>
-#include	<netdb.h>
-#include	<arpa/inet.h>
-#include	<netdb.h>
-#include	<sstream>
-#include	<stdio.h>
-#include	<string.h>
-#include 	<iostream>
-
 #include "WSocket.hh"
 
 WSocket::WSocket()
@@ -22,8 +10,8 @@ WSocket::~WSocket() {}
 
 void	WSocket::init()
 {
-	this->_wsaSocket = new WSADATA();
- 	if (WSAStartup(MAKEWORD(2, 2), _wsaSocket) != 0)
+	this->_wsaData = new WSADATA();
+ 	if (WSAStartup(MAKEWORD(2, 2), this->_wsaData) != 0)
  	{
  	}
 }
@@ -38,16 +26,14 @@ void	WSocket::connectToServer(std::string const & host, std::string const & port
   this->_port = port;
   this->_host = host;
   buff >> nbPort;
-  if ((_fd = socket(AF_INET, SOCK_STREAM, 0)) <= INVALID_SOCKET)
+  if ((_sock = WSASocket(AF_INET, SOCK_STREAM, IPPROTO_TCP, NULL, 0, 0)) == INVALID_SOCKET)
     throw std::runtime_error("Invalid Socket");
   if ((server = gethostbyname(host.c_str())) == NULL)
     throw std::runtime_error("ERROR, no such host");
-  bzero((char *) &serv_addr, sizeof(serv_addr));
   serv_addr.sin_family = AF_INET;
-  bcopy((char *)server->h_addr,
-	(char *)&serv_addr.sin_addr.s_addr, server->h_length);
+	(char *)&serv_addr.sin_addr.s_addr, server->h_length;
   serv_addr.sin_port = htons(nbPort);
-  if (connect(_fd, (struct sockaddr*)&serv_addr, sizeof(serv_addr)) < 0)
+  if (WSAConnect(_sock, (struct sockaddr*)&serv_addr, sizeof(serv_addr), NULL, NULL, NULL, NULL) == SOCKET_ERROR)
     throw std::runtime_error("Connect failed");
 }
 
@@ -62,7 +48,7 @@ int		WSocket::recvData(char *data, int size)
 {
   int n = 0;
 
-  if ((n = read(this->_fd, data, size)) <= 0)
+  if ((n = recv(this->_fd, data, size, 0)) <= 0)
     {
       this->_error = ERR_RECV;
       return (0);
@@ -75,7 +61,7 @@ int 	WSocket::sendData(char const *data, int size)
 {
   int n = 0;
 
-  if ((n = write(this->_fd, data, size)) < 0)
+  if ((n = send(this->_fd, data, size, 0)) < 0)
     this->_error = ERR_SEND;
   return n;
 }
@@ -87,7 +73,8 @@ int		WSocket::getError() const
 
 void	WSocket::end()
 {
-  close(this->_fd);
+	closesocket(_sock);
+
 }
 
 void	WSocket::setHost(std::string const &host)

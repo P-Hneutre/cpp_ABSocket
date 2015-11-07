@@ -1,19 +1,44 @@
-#ifndef WSOCKET_HH_
-#define WSOCKET_HH_
-#ifdef WIN32
+#pragma once
 
-#pragma comment(lib,"Ws2_32.lib")	
+#pragma comment(lib,"Ws2_32.lib")
+
 #include <winsock2.h>
-#include <Windows.h>
 #include <ws2tcpip.h>
-#include <map>
+#include <stdio.h>
+#include <stdlib.h>
+#include <sstream>
+#include <string.h>
+#include "ISocket.hh"
 
-class  Wsocket{
-private:	
+typedef struct	sockaddr_in	SOCKADDR_IN;
+typedef struct	sockaddr	SOCKADDR;
+typedef struct	in_addr		IN_ADDR;
+
+class WSocket : public ISocket
+{
 public:
-	void	init(void);
-	void	end(void);
+	WSocket();
+	~WSocket();
+public:
+	void			init();
+	void			connectToServer(std::string const & host, std::string const & port);
+	bool			connectFromAcceptedFd(void *fd);
+	int			recvData(char *data, int size);
+	int			sendData(const char *data, int size);
+	int			getError() const;
+	void			end();
 
-}
+public:
+	void	       		setHost(std::string const &host);
+	std::string const &	getHost() const;
+	SOCKET       		getFD() const;
 
-#endif /*WSOCKET_HH_*/
+
+private:
+	WSADATA			*_wsaData;
+	SOCKET			_sock;
+	DWORD			_error;
+	SOCKET	       	_fd;
+	std::string		_port;
+	std::string		_host;
+};

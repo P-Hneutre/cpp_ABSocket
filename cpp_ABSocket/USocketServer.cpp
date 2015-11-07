@@ -61,15 +61,6 @@ bool	USocketServer::init(std::string const &host, std::string const &port)
     }
   if (listen(_fd, 51) == -1)
     return (perror("Listen"), false);
-  struct sockaddr_in sin;
-  unsigned int addrlen = sizeof(sin);
-  if(getsockname(this->_fd, (struct sockaddr *)&sin, &addrlen) == 0 &&
-     sin.sin_family == AF_INET &&
-     addrlen == sizeof(sin))
-    {
-      int local_port = ntohs(sin.sin_port);
-      std::cout << "Server listening on port " << local_port << std::endl;
-    }
   return true;
 }
 

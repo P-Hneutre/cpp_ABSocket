@@ -4,6 +4,13 @@
 #include <iostream>
 #include "ISocket.hh"
 
+#define UNKNOWN_HOST 1
+#define CONNECT_FAIL 2
+#define ERR_RECV 3;
+#define ERR_SEND 4;
+#define ERR_BIND 5;
+#define ERR_ACPT 6;
+
 enum STATE_FIELD
 {
   READ = 0,

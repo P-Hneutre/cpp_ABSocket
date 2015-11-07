@@ -1,95 +1,100 @@
+#include	<unistd.h>
+#include	<sys/types.h>
+#include	<sys/socket.h>
+#include	<sys/time.h>
+#include	<netdb.h>
+#include	<arpa/inet.h>
+#include	<netdb.h>
+#include	<sstream>
+#include	<stdio.h>
+#include	<string.h>
+#include <iostream>
+
 #include "USocket.hh"
 
 USocket::USocket()
 {
-	this->_fd = 0;
-	this->_sockAddr = NULL;
-	this->_sockAddrIn = NULL;
-	this->_sockIn = NULL;
-	this->_hostInfo = NULL;
-
+  this->_fd = 0;
+  this->_error = 0;
 }
 
-USocket::~USocket()
-{
+USocket::~USocket() {}
 
+void	USocket::init() {}
+
+void	USocket::connectToServer(std::string const & host, std::string const & port)
+{
+  struct sockaddr_in serv_addr;
+  struct hostent *server;
+  std::stringstream buff(port);
+  int	nbPort;
+
+  this->_port = port;
+  this->_host = host;
+  buff >> nbPort;
+  if ((_fd = socket(AF_INET, SOCK_STREAM, 0)) <= INVALID_SOCK)
+    throw std::runtime_error("Invalid Socket");
+  if ((server = gethostbyname(host.c_str())) == NULL)
+    throw std::runtime_error("ERROR, no such host");
+  bzero((char *) &serv_addr, sizeof(serv_addr));
+  serv_addr.sin_family = AF_INET;
+  bcopy((char *)server->h_addr,
+	(char *)&serv_addr.sin_addr.s_addr, server->h_length);
+  serv_addr.sin_port = htons(nbPort);
+  if (connect(_fd, (struct sockaddr*)&serv_addr, sizeof(serv_addr)) < 0)
+    throw std::runtime_error("Connect failed");
 }
 
-void	USocket::setHost(std::string host)
+bool	USocket::connectFromAcceptedFd(void *fd)
 {
-	this->_hostInfo = gethostbyname(host);
+  int *p = static_cast<int*>(fd);
+  this->_fd = *p;
+  return true;
 }
 
-void	USocket::setPort(std::string port)
+int		USocket::recvData(char *data, int size)
 {
-	this->_port = htons(port);
+  int n = 0;
+
+  if ((n = read(this->_fd, data, size)) <= 0)
+    {
+      this->_error = ERR_RECV;
+      return (0);
+    }
+  data[n] = 0;
+  return n;
 }
 
-std::string	USocket::getHostName()
+int 	USocket::sendData(char const *data, int size)
 {
-	return (this->_host);
+  int n = 0;
+
+  if ((n = write(this->_fd, data, size)) < 0)
+    this->_error = ERR_SEND;
+  return n;
 }
 
-short	USocket::getPort()
+int		USocket::getError() const
 {
-	return (this->_port);	
-}
-
-bool	USocket::connectToServer(std::string host, std::string port)
-{
-	this->setHostName(host);
-	this->setPort(port);
-	this->_fd = socket(AF_INET, SOCK_STREAM, 0);
-	if (this->_fd == INVALID_SOCKET)
-	{
-		this->_error = INVALID_SOCKET;
-		return (false);
-	}
-	
-	if (this->_hostInfo == NULL) 
-	{
-		this->_error = UNKNOWN_HOST;
-		return (false);
-	}
-
-	this->_sockAddrIn.sin_addr = *(IN_ADDR *)this->_hostInfo->h_addr;
-	this->_sockAddrIn.sin_port = this->_port; 
-	this->_sockAddrIn.sin_family = AF_INET;
-
-	if (connect(this->_fd, (SOCKADDR *)&this->_sockAddr, sizeof(SOCKADDR)) == SOCKET_ERROR)
-	{
-		this->_error = CONNECT_FAIL;
-		return (false);
-	}
-}
-
-bool	USocket::connectFromAcceptedFd(int fd)
-{
-
-}
-
-int		USocket::recvData(char	*buffer, int size)
-{
-	int n = 0;
-	if ((n = recv(this->_fd, buffer, size, 0)) < 0)
-		this->_error = ERR_RECV;
-	buffer[n] = 0;
-	return n;
-}
-
-int 	USocket::sendData(std::string buffer)
-{
-	if (send(this->_fd, buffer.c_str() , buffer.size(), 0) < 0)
-		this->_error = ERR_SEND;
-
-}
-
-int		USocket::getError()
-{
-	return (this->_error);
+  return (this->_error);
 }
 
 void	USocket::end()
 {
-	closesocket(this->_fd);
+  close(this->_fd);
+}
+
+void	USocket::setHost(std::string const &host)
+{
+  this->_host = host;
+}
+
+std::string const &	USocket::getHost() const
+{
+  return this->_host;
+}
+
+SOCKET 	USocket::getFD() const
+{
+  return _fd;
 }
