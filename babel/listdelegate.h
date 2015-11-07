@@ -1,6 +1,7 @@
 #ifndef LISTDELEGATE_H
 #define LISTDELEGATE_H
 
+#include <QPushButton>
 #include <QPainter>
 #include <QAbstractItemDelegate>
 

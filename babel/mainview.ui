@@ -6,22 +6,28 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>572</width>
-    <height>461</height>
+    <width>586</width>
+    <height>462</height>
    </rect>
   </property>
   <property name="windowTitle">
    <string>Babel</string>
   </property>
+  <property name="styleSheet">
+   <string notr="true"/>
+  </property>
   <widget class="QWidget" name="centralwidget">
    <widget class="QListWidget" name="contactList">
     <property name="geometry">
      <rect>
-      <x>-10</x>
+      <x>0</x>
       <y>180</y>
       <width>291</width>
       <height>261</height>
      </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true"/>
     </property>
     <property name="lineWidth">
      <number>0</number>
@@ -30,7 +36,7 @@
    <widget class="Line" name="line">
     <property name="geometry">
      <rect>
-      <x>0</x>
+      <x>10</x>
       <y>150</y>
       <width>81</width>
       <height>21</height>
@@ -40,23 +46,10 @@
      <enum>Qt::Horizontal</enum>
     </property>
    </widget>
-   <widget class="Line" name="line_2">
-    <property name="geometry">
-     <rect>
-      <x>270</x>
-      <y>-10</y>
-      <width>20</width>
-      <height>511</height>
-     </rect>
-    </property>
-    <property name="orientation">
-     <enum>Qt::Vertical</enum>
-    </property>
-   </widget>
    <widget class="QLabel" name="label">
     <property name="geometry">
      <rect>
-      <x>90</x>
+      <x>100</x>
       <y>140</y>
       <width>141</width>
       <height>20</height>
@@ -69,9 +62,9 @@
    <widget class="Line" name="line_3">
     <property name="geometry">
      <rect>
-      <x>180</x>
+      <x>200</x>
       <y>150</y>
-      <width>101</width>
+      <width>91</width>
       <height>21</height>
      </rect>
     </property>
@@ -82,8 +75,8 @@
    <widget class="Line" name="line_4">
     <property name="geometry">
      <rect>
-      <x>980</x>
-      <y>310</y>
+      <x>990</x>
+      <y>280</y>
       <width>20</width>
       <height>511</height>
      </rect>
@@ -95,8 +88,8 @@
    <widget class="QListWidget" name="contactList_2">
     <property name="geometry">
      <rect>
-      <x>720</x>
-      <y>500</y>
+      <x>730</x>
+      <y>470</y>
       <width>261</width>
       <height>311</height>
      </rect>
@@ -108,8 +101,8 @@
    <widget class="Line" name="line_5">
     <property name="geometry">
      <rect>
-      <x>710</x>
-      <y>480</y>
+      <x>720</x>
+      <y>450</y>
       <width>81</width>
       <height>16</height>
      </rect>
@@ -121,8 +114,8 @@
    <widget class="QLabel" name="label_2">
     <property name="geometry">
      <rect>
-      <x>800</x>
-      <y>470</y>
+      <x>810</x>
+      <y>440</y>
       <width>141</width>
       <height>20</height>
      </rect>
@@ -134,8 +127,8 @@
    <widget class="Line" name="line_6">
     <property name="geometry">
      <rect>
-      <x>890</x>
-      <y>480</y>
+      <x>900</x>
+      <y>450</y>
       <width>101</width>
       <height>20</height>
      </rect>
@@ -144,24 +137,11 @@
      <enum>Qt::Horizontal</enum>
     </property>
    </widget>
-   <widget class="QLabel" name="pseudo">
-    <property name="geometry">
-     <rect>
-      <x>90</x>
-      <y>50</y>
-      <width>141</width>
-      <height>20</height>
-     </rect>
-    </property>
-    <property name="text">
-     <string>Contact List</string>
-    </property>
-   </widget>
    <widget class="QLabel" name="pseudo_2">
     <property name="geometry">
      <rect>
-      <x>300</x>
-      <y>50</y>
+      <x>310</x>
+      <y>220</y>
       <width>141</width>
       <height>20</height>
      </rect>
@@ -173,8 +153,8 @@
    <widget class="QLabel" name="pseudo_3">
     <property name="geometry">
      <rect>
-      <x>300</x>
-      <y>140</y>
+      <x>310</x>
+      <y>270</y>
       <width>141</width>
       <height>20</height>
      </rect>
@@ -183,11 +163,11 @@
      <string>Status :</string>
     </property>
    </widget>
-   <widget class="QLabel" name="pseudo_4">
+   <widget class="QLabel" name="contactPseudo">
     <property name="geometry">
      <rect>
-      <x>380</x>
-      <y>50</y>
+      <x>390</x>
+      <y>220</y>
       <width>141</width>
       <height>20</height>
      </rect>
@@ -196,11 +176,11 @@
      <string>Baboulinet</string>
     </property>
    </widget>
-   <widget class="QLabel" name="status">
+   <widget class="QLabel" name="contactStatus">
     <property name="geometry">
      <rect>
-      <x>380</x>
-      <y>140</y>
+      <x>390</x>
+      <y>270</y>
       <width>141</width>
       <height>20</height>
      </rect>
@@ -209,20 +189,10 @@
      <string>Online</string>
     </property>
    </widget>
-   <widget class="QWidget" name="widget" native="true">
-    <property name="geometry">
-     <rect>
-      <x>490</x>
-      <y>120</y>
-      <width>51</width>
-      <height>51</height>
-     </rect>
-    </property>
-   </widget>
    <widget class="QPushButton" name="pushButton">
     <property name="geometry">
      <rect>
-      <x>350</x>
+      <x>360</x>
       <y>330</y>
       <width>111</width>
       <height>31</height>
@@ -236,22 +206,411 @@
     </property>
     <property name="styleSheet">
      <string notr="true">QPushButton {
-        border: 1px solid #FFFFF;
-		font-color:rgb(255,255,255)f;
+        border: 1px solid #ffffff;
+		color:rgb(255,255,255);
         border-radius: 6px;
     	background-color: #27ae60;
     }
     QPushButton:hover {
         border: 1px solid #333333;
-        background-color: #3498db;
+        background-color: #27ae60;
     }
     QPushButton:pressed {
         border: 1px solid #333333;
         background-color: #ffffff;
+		color:rgb(0,0,0);
+    }QPushButton {
+        border: 1px solid #fffff;
+		color:rgb(255,255,255);
+        border-radius: 6px;
+    	background-color: #27ae60;
+    }
+    QPushButton:hover {
+        border: 1px solid #333333;
+        background-color: #27ae60;
+    }
+    QPushButton:pressed {
+        border: 1px solid #333333;
+        background-color: #ffffff;
+		color:rgb(0,0,0);
     }</string>
     </property>
     <property name="text">
      <string>Call</string>
+    </property>
+   </widget>
+   <widget class="QLabel" name="pseudo_5">
+    <property name="geometry">
+     <rect>
+      <x>210</x>
+      <y>50</y>
+      <width>141</width>
+      <height>20</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>Pseudo :</string>
+    </property>
+   </widget>
+   <widget class="QLabel" name="ownPseudo">
+    <property name="geometry">
+     <rect>
+      <x>290</x>
+      <y>50</y>
+      <width>141</width>
+      <height>20</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>Baboulinet</string>
+    </property>
+   </widget>
+   <widget class="QLabel" name="ownStatus">
+    <property name="geometry">
+     <rect>
+      <x>290</x>
+      <y>80</y>
+      <width>141</width>
+      <height>20</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>Online</string>
+    </property>
+   </widget>
+   <widget class="QLabel" name="pseudo_7">
+    <property name="geometry">
+     <rect>
+      <x>210</x>
+      <y>80</y>
+      <width>141</width>
+      <height>20</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>Status :</string>
+    </property>
+   </widget>
+   <widget class="QLabel" name="label_3">
+    <property name="geometry">
+     <rect>
+      <x>220</x>
+      <y>10</y>
+      <width>191</width>
+      <height>20</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>Your informations</string>
+    </property>
+   </widget>
+   <widget class="Line" name="line_2">
+    <property name="geometry">
+     <rect>
+      <x>0</x>
+      <y>20</y>
+      <width>211</width>
+      <height>21</height>
+     </rect>
+    </property>
+    <property name="orientation">
+     <enum>Qt::Horizontal</enum>
+    </property>
+   </widget>
+   <widget class="Line" name="line_8">
+    <property name="geometry">
+     <rect>
+      <x>360</x>
+      <y>20</y>
+      <width>211</width>
+      <height>21</height>
+     </rect>
+    </property>
+    <property name="orientation">
+     <enum>Qt::Horizontal</enum>
+    </property>
+   </widget>
+   <widget class="Line" name="line_7">
+    <property name="geometry">
+     <rect>
+      <x>0</x>
+      <y>120</y>
+      <width>571</width>
+      <height>21</height>
+     </rect>
+    </property>
+    <property name="orientation">
+     <enum>Qt::Horizontal</enum>
+    </property>
+   </widget>
+   <widget class="QLabel" name="label_4">
+    <property name="geometry">
+     <rect>
+      <x>350</x>
+      <y>140</y>
+      <width>191</width>
+      <height>20</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>Contact  informations</string>
+    </property>
+   </widget>
+   <widget class="Line" name="line_9">
+    <property name="geometry">
+     <rect>
+      <x>270</x>
+      <y>150</y>
+      <width>71</width>
+      <height>21</height>
+     </rect>
+    </property>
+    <property name="orientation">
+     <enum>Qt::Horizontal</enum>
+    </property>
+   </widget>
+   <widget class="Line" name="line_10">
+    <property name="geometry">
+     <rect>
+      <x>510</x>
+      <y>150</y>
+      <width>71</width>
+      <height>21</height>
+     </rect>
+    </property>
+    <property name="orientation">
+     <enum>Qt::Horizontal</enum>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="pushButton_2">
+    <property name="geometry">
+     <rect>
+      <x>360</x>
+      <y>380</y>
+      <width>111</width>
+      <height>31</height>
+     </rect>
+    </property>
+    <property name="font">
+     <font>
+      <weight>75</weight>
+      <bold>true</bold>
+     </font>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">QPushButton {
+        border: 1px solid #ffffff;
+		color:rgb(255,255,255);
+        border-radius: 6px;
+    	background-color: red;
+    }
+    QPushButton:hover {
+        border: 1px solid #333333;
+        background-color: red;
+    }
+    QPushButton:pressed {
+        border: 1px solid #333333;
+        background-color: black;
+		color:rgb(255,255,255);
+    }</string>
+    </property>
+    <property name="text">
+     <string>Delete</string>
+    </property>
+   </widget>
+   <widget class="QLabel" name="label_5">
+    <property name="geometry">
+     <rect>
+      <x>350</x>
+      <y>250</y>
+      <width>171</width>
+      <height>21</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>Select a contact</string>
+    </property>
+   </widget>
+   <widget class="QLabel" name="label_6">
+    <property name="geometry">
+     <rect>
+      <x>340</x>
+      <y>310</y>
+      <width>211</width>
+      <height>21</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>display his information</string>
+    </property>
+   </widget>
+   <widget class="QLabel" name="label_7">
+    <property name="geometry">
+     <rect>
+      <x>400</x>
+      <y>280</y>
+      <width>211</width>
+      <height>21</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>for</string>
+    </property>
+   </widget>
+   <widget class="QLabel" name="ownIcStatus">
+    <property name="geometry">
+     <rect>
+      <x>90</x>
+      <y>60</y>
+      <width>47</width>
+      <height>41</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string/>
+    </property>
+   </widget>
+   <widget class="QLabel" name="contactIsStatus">
+    <property name="geometry">
+     <rect>
+      <x>470</x>
+      <y>260</y>
+      <width>47</width>
+      <height>41</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string/>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="desabledCall">
+    <property name="geometry">
+     <rect>
+      <x>360</x>
+      <y>330</y>
+      <width>111</width>
+      <height>31</height>
+     </rect>
+    </property>
+    <property name="font">
+     <font>
+      <weight>75</weight>
+      <bold>true</bold>
+     </font>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">QPushButton {
+        border: 1px solid #ffffff;
+		color:rgb(255,255,255);
+        border-radius: 6px;
+    	background-color: rgba(189, 195, 199,80%);
+    }</string>
+    </property>
+    <property name="text">
+     <string>Call</string>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="desabledDelete">
+    <property name="geometry">
+     <rect>
+      <x>360</x>
+      <y>380</y>
+      <width>111</width>
+      <height>31</height>
+     </rect>
+    </property>
+    <property name="font">
+     <font>
+      <weight>75</weight>
+      <bold>true</bold>
+     </font>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">QPushButton {
+        border: 1px solid #ffffff;
+		color:rgb(255,255,255);
+        border-radius: 6px;
+    	background-color: rgba(189, 195, 199,50%);
+    }</string>
+    </property>
+    <property name="text">
+     <string>Delete</string>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="acceptButt">
+    <property name="geometry">
+     <rect>
+      <x>340</x>
+      <y>350</y>
+      <width>161</width>
+      <height>31</height>
+     </rect>
+    </property>
+    <property name="font">
+     <font>
+      <weight>75</weight>
+      <bold>true</bold>
+     </font>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">QPushButton {
+        border: 1px solid;
+		border-color:rgb(0,0,0);
+		color:rgb(255,255,255);
+        border-radius: 6px;
+    	background-color: #2980b9;
+    }
+    QPushButton:hover {
+        border: 1px solid #333333;
+        background-color:#2c3e50;
+		color:rgb(255,255,255);
+    }
+    QPushButton:pressed {
+        border: 1px solid #333333;
+        background-color: #ffffff;
+		color:rgb(0,0,0)
+    }</string>
+    </property>
+    <property name="text">
+     <string>Accept Contact</string>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="addContact">
+    <property name="geometry">
+     <rect>
+      <x>360</x>
+      <y>60</y>
+      <width>161</width>
+      <height>31</height>
+     </rect>
+    </property>
+    <property name="font">
+     <font>
+      <weight>75</weight>
+      <bold>true</bold>
+     </font>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">QPushButton {
+        border: 1px solid;
+		border-color:rgb(0,0,0);
+		color:rgb(255,255,255);
+        border-radius: 6px;
+    	background-color: #2980b9;
+    }
+    QPushButton:hover {
+        border: 1px solid #333333;
+        background-color:#2c3e50;
+		color:rgb(255,255,255);
+    }
+    QPushButton:pressed {
+        border: 1px solid #333333;
+        background-color: #ffffff;
+		color:rgb(0,0,0)
+    }</string>
+    </property>
+    <property name="text">
+     <string>Add Contact</string>
     </property>
    </widget>
   </widget>
@@ -260,30 +619,26 @@
     <rect>
      <x>0</x>
      <y>0</y>
-     <width>572</width>
+     <width>586</width>
      <height>20</height>
     </rect>
    </property>
    <widget class="QMenu" name="menuFil">
+    <property name="font">
+     <font>
+      <pointsize>10</pointsize>
+     </font>
+    </property>
     <property name="title">
      <string>File</string>
     </property>
-    <addaction name="actionAdd_contact"/>
     <addaction name="actionSearch_contact"/>
     <addaction name="actionDeconnection"/>
     <addaction name="separator"/>
     <addaction name="actionDonate"/>
     <addaction name="actionAbout"/>
    </widget>
-   <widget class="QMenu" name="menuSettings">
-    <property name="title">
-     <string>Settings</string>
-    </property>
-    <addaction name="separator"/>
-    <addaction name="actionView_profile"/>
-   </widget>
    <addaction name="menuFil"/>
-   <addaction name="menuSettings"/>
   </widget>
   <widget class="QStatusBar" name="statusbar"/>
   <action name="actionAdd_contact">
@@ -292,7 +647,7 @@
    </property>
    <property name="font">
     <font>
-     <pointsize>8</pointsize>
+     <pointsize>10</pointsize>
     </font>
    </property>
   </action>
@@ -300,20 +655,40 @@
    <property name="text">
     <string>Search contact</string>
    </property>
+   <property name="font">
+    <font>
+     <pointsize>10</pointsize>
+    </font>
+   </property>
   </action>
   <action name="actionAbout">
    <property name="text">
     <string>About</string>
+   </property>
+   <property name="font">
+    <font>
+     <pointsize>10</pointsize>
+    </font>
    </property>
   </action>
   <action name="actionDeconnection">
    <property name="text">
     <string>Deconnection</string>
    </property>
+   <property name="font">
+    <font>
+     <pointsize>10</pointsize>
+    </font>
+   </property>
   </action>
   <action name="actionDonate">
    <property name="text">
     <string>Donate</string>
+   </property>
+   <property name="font">
+    <font>
+     <pointsize>10</pointsize>
+    </font>
    </property>
   </action>
   <action name="actionView_profile">

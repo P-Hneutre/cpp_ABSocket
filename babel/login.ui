@@ -6,61 +6,18 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>365</width>
-    <height>262</height>
+    <width>368</width>
+    <height>283</height>
    </rect>
   </property>
   <property name="windowTitle">
    <string>Login</string>
   </property>
-  <widget class="QPushButton" name="connect">
-   <property name="geometry">
-    <rect>
-     <x>70</x>
-     <y>200</y>
-     <width>81</width>
-     <height>23</height>
-    </rect>
-   </property>
-   <property name="styleSheet">
-    <string notr="true">QPushButton {
-    border-style: outset;
-    border-width: 2px;
-	border-radius:10px;
-    border-color: black;
-}
-
-    QPushButton:pressed {
-        border: 1px solid #333333;
-        background-color: #222222;
-    }</string>
-   </property>
-   <property name="text">
-    <string>Login</string>
-   </property>
-  </widget>
-  <widget class="QPushButton" name="register_2">
-   <property name="geometry">
-    <rect>
-     <x>220</x>
-     <y>200</y>
-     <width>91</width>
-     <height>23</height>
-    </rect>
-   </property>
-   <property name="styleSheet">
-    <string notr="true">	border-radius:10px;
-</string>
-   </property>
-   <property name="text">
-    <string>Register</string>
-   </property>
-  </widget>
   <widget class="QLineEdit" name="_pwd">
    <property name="geometry">
     <rect>
      <x>180</x>
-     <y>150</y>
+     <y>160</y>
      <width>113</width>
      <height>20</height>
     </rect>
@@ -86,7 +43,7 @@
    <property name="geometry">
     <rect>
      <x>70</x>
-     <y>150</y>
+     <y>160</y>
      <width>101</width>
      <height>20</height>
     </rect>
@@ -124,6 +81,269 @@ color :rgb(255, 255, 255)</string>
      <width>221</width>
      <height>80</height>
     </rect>
+   </property>
+  </widget>
+  <widget class="QPushButton" name="login">
+   <property name="geometry">
+    <rect>
+     <x>60</x>
+     <y>220</y>
+     <width>111</width>
+     <height>31</height>
+    </rect>
+   </property>
+   <property name="font">
+    <font>
+     <weight>75</weight>
+     <bold>true</bold>
+    </font>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">QPushButton {
+        border: 1px solid;
+		border-color:rgb(0,0,0);
+		color:rgb(255,255,255);
+        border-radius: 6px;
+    	background-color: #2980b9;
+    }
+    QPushButton:hover {
+        border: 1px solid #333333;
+        background-color:#2c3e50;
+		color:rgb(255,255,255);
+    }
+    QPushButton:pressed {
+        border: 1px solid #333333;
+        background-color: #ffffff;
+		color:rgb(0,0,0)
+    }</string>
+   </property>
+   <property name="text">
+    <string>Login</string>
+   </property>
+  </widget>
+  <widget class="QPushButton" name="goRegister">
+   <property name="geometry">
+    <rect>
+     <x>200</x>
+     <y>220</y>
+     <width>111</width>
+     <height>31</height>
+    </rect>
+   </property>
+   <property name="font">
+    <font>
+     <weight>75</weight>
+     <bold>true</bold>
+    </font>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">QPushButton {
+        border: 1px solid;
+		border-color:rgb(0,0,0);
+		color:rgb(255,255,255);
+        border-radius: 6px;
+    	background-color: #2980b9;
+    }
+    QPushButton:hover {
+        border: 1px solid #333333;
+        background-color:#2c3e50;
+		color:rgb(255,255,255);
+    }
+    QPushButton:pressed {
+        border: 1px solid #333333;
+        background-color: #ffffff;
+		color:rgb(0,0,0)
+    }</string>
+   </property>
+   <property name="text">
+    <string>Sign up</string>
+   </property>
+  </widget>
+  <widget class="QLabel" name="labelReg_1">
+   <property name="enabled">
+    <bool>true</bool>
+   </property>
+   <property name="geometry">
+    <rect>
+     <x>50</x>
+     <y>100</y>
+     <width>121</width>
+     <height>20</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">color:rgb(255, 255, 255);font-size:13px;</string>
+   </property>
+   <property name="text">
+    <string>Pseudo</string>
+   </property>
+  </widget>
+  <widget class="QLineEdit" name="_confPwd">
+   <property name="enabled">
+    <bool>true</bool>
+   </property>
+   <property name="geometry">
+    <rect>
+     <x>210</x>
+     <y>180</y>
+     <width>113</width>
+     <height>21</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">background-color:rgb(255, 255, 255);</string>
+   </property>
+  </widget>
+  <widget class="QPushButton" name="applyRegister">
+   <property name="enabled">
+    <bool>true</bool>
+   </property>
+   <property name="geometry">
+    <rect>
+     <x>200</x>
+     <y>220</y>
+     <width>111</width>
+     <height>31</height>
+    </rect>
+   </property>
+   <property name="font">
+    <font>
+     <weight>75</weight>
+     <bold>true</bold>
+    </font>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">QPushButton {
+        border: 1px solid;
+		border-color:rgb(0,0,0);
+		color:rgb(255,255,255);
+        border-radius: 6px;
+    	background-color: #2980b9;
+    }
+    QPushButton:hover {
+        border: 1px solid #333333;
+        background-color:#2c3e50;
+		color:rgb(255,255,255);
+    }
+    QPushButton:pressed {
+        border: 1px solid #333333;
+        background-color: #ffffff;
+		color:rgb(0,0,0)
+    }</string>
+   </property>
+   <property name="text">
+    <string>Register</string>
+   </property>
+  </widget>
+  <widget class="QPushButton" name="cancelRegister">
+   <property name="enabled">
+    <bool>true</bool>
+   </property>
+   <property name="geometry">
+    <rect>
+     <x>60</x>
+     <y>220</y>
+     <width>111</width>
+     <height>31</height>
+    </rect>
+   </property>
+   <property name="font">
+    <font>
+     <weight>75</weight>
+     <bold>true</bold>
+    </font>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">QPushButton {
+        border: 1px solid;
+		border-color:rgb(0,0,0);
+		color:rgb(255,255,255);
+        border-radius: 6px;
+    	background-color: #2980b9;
+    }
+    QPushButton:hover {
+        border: 1px solid #333333;
+        background-color:#2c3e50;
+		color:rgb(255,255,255);
+    }
+    QPushButton:pressed {
+        border: 1px solid #333333;
+        background-color: #ffffff;
+		color:rgb(0,0,0)
+    }</string>
+   </property>
+   <property name="text">
+    <string>Cancel</string>
+   </property>
+  </widget>
+  <widget class="QLineEdit" name="_pseudoReg">
+   <property name="enabled">
+    <bool>true</bool>
+   </property>
+   <property name="geometry">
+    <rect>
+     <x>210</x>
+     <y>100</y>
+     <width>113</width>
+     <height>21</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">background-color:rgb(255, 255, 255);</string>
+   </property>
+  </widget>
+  <widget class="QLineEdit" name="_pwdReg">
+   <property name="enabled">
+    <bool>true</bool>
+   </property>
+   <property name="geometry">
+    <rect>
+     <x>210</x>
+     <y>140</y>
+     <width>113</width>
+     <height>21</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">background-color:rgb(255, 255, 255);</string>
+   </property>
+  </widget>
+  <widget class="QLabel" name="labelReg_3">
+   <property name="enabled">
+    <bool>false</bool>
+   </property>
+   <property name="geometry">
+    <rect>
+     <x>50</x>
+     <y>180</y>
+     <width>161</width>
+     <height>20</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">color:rgb(255, 255, 255);font-size:13px;</string>
+   </property>
+   <property name="text">
+    <string>Confirm password</string>
+   </property>
+  </widget>
+  <widget class="QLabel" name="labelReg_2">
+   <property name="enabled">
+    <bool>false</bool>
+   </property>
+   <property name="geometry">
+    <rect>
+     <x>50</x>
+     <y>140</y>
+     <width>131</width>
+     <height>20</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">color:rgb(255, 255, 255);font-size:13px;</string>
+   </property>
+   <property name="text">
+    <string>Password</string>
    </property>
   </widget>
  </widget>

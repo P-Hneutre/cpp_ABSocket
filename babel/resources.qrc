@@ -3,6 +3,11 @@
         <file>img/babel.png</file>
         <file>img/babelmini.png</file>
         <file>img/babelicon.png</file>
+		<file>img/online.png</file>
+		<file>img/offline.png</file>
+		<file>img/busy.png</file>
+		<file>img/delete.png</file>
+		<file>img/invited.png</file>
         <file>fonts/ArialRoundedMTBold.ttf</file>
         <file>fonts/ArialRoundedMTRegular.ttf</file>
 		<file>stylesheets/QPushButton.qss</file>

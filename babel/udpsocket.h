@@ -13,12 +13,13 @@ public:
     UdpSocket();
     ~UdpSocket();
     void                setHost(QString const&);
-    QString             getHost();
+    QString             getHost()const;
     void                setPort(quint16);
-    quint16             getPort();
-    void                setSocket(QAbstractSocket *);
-    QAbstractSocket *   getSocket();
-    void                connectServer();
+    quint16             getPort()const ;
+    void                setUdpSocket(QUdpSocket *);
+    QAbstractSocket *   getSocket()const;
+    //void                sendUdp(e_cmd, std::string const&, std::string const&, QHostAddress const&);
+    void                connectServer()const;
 };
 
 #endif // UDPSOCKET_H

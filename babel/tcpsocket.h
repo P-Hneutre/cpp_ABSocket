@@ -10,15 +10,16 @@ class TcpSocket : public INetworkManager
     quint16             _port;
     QTcpSocket          *_tcpSocket;
 public:
-    TcpSocket();
+    TcpSocket(QString _host = "127.0.0.1", quint16 _port = 35000 );
     ~TcpSocket();
     void                setHost(QString const&);
-    QString             getHost();
+    QString             getHost()const;
     void                setPort(quint16);
-    quint16             getPort();
-    void                setSocket(QAbstractSocket *);
-    QAbstractSocket *   getSocket();
-    void                connectServer();
+    quint16             getPort()const;
+    void                setTcpSocket(QTcpSocket *);
+    QAbstractSocket *   getSocket()const;
+    //void                sendTcp(e_cmd, std::string const&, std::string const&);
+    void                connectServer()const;
 };
 
 #endif // TCPSOCKET_H
