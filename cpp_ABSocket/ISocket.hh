@@ -1,18 +1,30 @@
 #pragma once
 
 #include <string>
-#include <iostream>
+#include <stdexcept>
+
+#define INVALID_SOCKET -1
+#define SOCKET_ERROR -1
+#define UNKNOWN_HOST 1
+#define CONNECT_FAIL 2
+#define ERR_RECV 3;
+#define ERR_SEND 4;
+#define ERR_BIND 5;
+#define ERR_ACPT 6;
 
 class ISocket
 {
-	public:
+public:
+  virtual ~ISocket() {};
 
-		virtual void	init() const = 0;
-		virtual void	end() const = 0;
-		virtual bool	connectToServer(std::string host, std::string port) const = 0;
-		virtual bool	connectFromAcceptedFd(int fd) const = 0;
-		virtual int		recvData(std::string buffer, int size) const = 0;
-		virtual int 	sendData(std::string  data) const = 0;
-		virtual int		getError() const  = 0;
+public:
+  virtual void	init() = 0;
+  virtual void	connectToServer(std::string const & host, std::string const & port) = 0;
+  virtual bool	connectFromAcceptedFd(void *fd) = 0;
+  virtual int  	recvData(char * data, int size) = 0;
+  virtual int 	sendData(const char *data, int size) = 0;
+  virtual int  	getError() const  = 0;
+  virtual void	setHost(std::string const &host) = 0;
+  virtual std::string const & getHost() const = 0;
+  virtual void	end() = 0;
 };
-

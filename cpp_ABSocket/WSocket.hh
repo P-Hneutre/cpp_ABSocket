@@ -8,20 +8,29 @@
 
 class WSocket : public ISocket
 {
-	WSADATA			*_wsaSocket;
-	DWORD			_error;
 public:
 	WSocket();
-	virtual ~WSocket();
-	virtual bool	AbconnectToServer(std::string const &host, short port);
-	virtual int		AbSocket(int, int, int);
-	virtual int		AbBind(int, const struct sockaddr *, size_t);
-	virtual int		AbListen(int, int);
-	virtual int		AbConnect(int, const struct sockaddr *, size_t);
-	virtual int		AbAccept(int, struct sockaddr *, size_t *);
-	virtual int		AbSend(int, const void *, size_t, int);
-	virtual int		AbSendTo(int, const void *, size_t, int, const struct sockaddr *, size_t);
-	virtual int		AbRecv(int, void *, size_t, int);
-	virtual int		AbRecvFrom(int, void *, size_t, int, struct sockaddr *, size_t *);
-};
+	~WSocket();
+public:
+  void			init();
+  void			connectToServer(std::string const & host, std::string const & port);
+  bool			connectFromAcceptedFd(void *fd);
+  int			recvData(char *data, int size);
+  int			sendData(const char *data, int size);
+  int			getError() const;
+  void			end();
 
+public:
+  void	       		setHost(std::string const &host);
+  std::string const &	getHost() const;
+  SOCKET       		getFD() const;
+
+
+private:
+	WSADATA			*_wsaSocket;
+	DWORD			_error;
+	SOCKET	       	_fd;
+ 	std::string		_port;
+  	std::string		_host;
+  	int		       	_error;
+};
